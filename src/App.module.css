@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main_container {
+    display: flex;
+    background: grey;
+    min-height: 100vh;
+    padding: 20px;
+}
