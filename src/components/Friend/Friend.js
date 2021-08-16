@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../../context'
 import styles from './Friend.module.css'
 
-const Friend = () => {
+const Friend = ({id, name}) => {
+    const { changeFriend } = useContext(AppContext)
 
     return (
-        <div className={styles.container}>
-            Friend component
+        <div className={styles.container} onClick={() => changeFriend(id)}>
+            {name}
         </div>
     )
 }

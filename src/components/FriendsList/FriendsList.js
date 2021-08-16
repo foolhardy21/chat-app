@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../../context'
 import Friend from '../Friend/Friend'
 
 const FriendsList = () => {
 
+    const { allUsers, currentUser }=  useContext(AppContext)
+
     return (
         <div>
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
+            {
+                allUsers[currentUser].friends.map((friend_id) => {
+                    return <Friend key={friend_id} {...allUsers[friend_id]} /> 
+                })
+            }
         </div>
     )
 }
