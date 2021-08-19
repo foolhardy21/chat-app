@@ -3,11 +3,11 @@ import styles from './Self.module.css'
 import { AppContext } from '../../context'
 
 const Self = () => {
-    const { currentUser, allUsers } = useContext(AppContext)
+    const { currentUser } = useContext(AppContext)
 
     return (
         <div className={styles.container}>
-            {allUsers[currentUser].name}
+            {currentUser.name}
         </div>
     )
 }

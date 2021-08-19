@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Info from './components/InfoPanel/InfoPanel';
 import Hero from './components/Hero/Hero';
 import styles from './App.module.css'
