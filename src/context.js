@@ -30,10 +30,12 @@ const AppProvider = ({children}) => {
     const [friends, setAllFriends] = useState( initialiseFriendsArray() )
     const [currentFriend, setCurrentFriend] = useState( users[1] )
     const [messages, setMessages] = useState(initialiseConversationArray(currentUser.id, currentFriend.id))
+    const [messagetext, setMessageText] = useState('')
 
     useEffect(() => {
         setMessages(initialiseConversationArray(currentUser.id, currentFriend.id))
-    },[currentFriend])
+    },[currentFriend, currentUser])
+
     const changeFriend = ( id ) => {
         const newfriend = friends.filter( friend => friend.id === id )
         setCurrentFriend( ...newfriend )
@@ -48,16 +50,33 @@ const AppProvider = ({children}) => {
             setAllFriends( [...users] )
         }
     }
-
+    const sendMessage = (e) => {
+        e.preventDefault()
+        setMessages([...messages,{
+            sender_id: currentUser.id,
+            reciever_id: currentFriend.id,
+            text: messagetext,
+            time: new Date(),
+        }])
+        setMessageText('')
+        
+    }
+    const updateMessageText = (e) => {
+        setMessageText(e.target.value)
+    }
     return (
         <AppContext.Provider
         value = {{
             currentUser,
             friends,
             currentFriend,
+            messages,
+            messagetext,
             changeFriend,
             findFriends,
-            messages,
+            sendMessage,
+            setMessageText,
+            updateMessageText,
         }}
         >
             {children}
