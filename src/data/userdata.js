@@ -4,7 +4,7 @@ const users = [
         id: 0,
         name: 'Vinay Kumar',
         friends: [
-            1,2,3,4,5
+            1,3
         ]
     },
     {
