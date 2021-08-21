@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom'
 import { AppContext } from '../../context'
 
 const AllUsers = () => {
-    const { allUsers } = useContext(AppContext)
+    const { allUsers, changeUser } = useContext(AppContext)
     return (
-        <Link to='/'>
+        
             <div>
                 {
                     allUsers.map((user) => {
-                        return <li key={user.id}>{user.name}</li>
+                        return (
+                            <Link key={user.id} to='/'>
+                                <li onClick={() => changeUser(user.id)}>{user.name}</li>
+                            </Link>
+                        ) 
                     })
                 } 
-            </div>       
-        </Link>
+            </div>
     )
 }
 export default AllUsers

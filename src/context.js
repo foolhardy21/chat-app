@@ -39,7 +39,8 @@ const AppProvider = ({children}) => {
     },[currentFriend, currentUser])
     useEffect(() => {
         setAllFriends(initialiseFriendsArray())
-    },[allUsers])
+        setCurrentFriend(currentUser.friends[0])
+    },[allUsers, currentUser])
     
     const changeFriend = ( id ) => {
         const newfriend = friends.filter( friend => friend.id === id )
@@ -77,7 +78,7 @@ const AppProvider = ({children}) => {
     }
     const addNewConvo = (e) => {
         sendMessage(e)
-                
+
         const newallUsers = allUsers.map(user => {
             if(user.id === currentUser.id) {
                 user.friends.push(currentFriend.id)
@@ -85,6 +86,10 @@ const AppProvider = ({children}) => {
             return user
         })
         setAllUsers([...newallUsers])
+    }
+    const changeUser = (id) => {
+        const newuser = allUsers.filter(user => user.id === id )
+        setCurrentUser(...newuser)
     }
     return (
         <AppContext.Provider
@@ -102,6 +107,7 @@ const AppProvider = ({children}) => {
             updateMessageText,
             setNewFriend,
             addNewConvo,
+            changeUser,
         }}
         >
             {children}

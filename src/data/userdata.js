@@ -10,7 +10,7 @@ const users = [
     {
         id: 1,
         name: 'Shubhanshu Biswal',
-        friends: []
+        friends: [0]
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ const users = [
     {
         id: 3,
         name: 'Rajesh Pandit',
-        friends: []
+        friends: [0]
     },
     {
         id: 4,
