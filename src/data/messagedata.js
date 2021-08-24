@@ -1,4 +1,3 @@
-
 const conversations = [
     {
         sender_id: 0,
@@ -26,6 +25,4 @@ const conversations = [
     },
 ]
 
-export {
-    conversations
-}
+export default conversations

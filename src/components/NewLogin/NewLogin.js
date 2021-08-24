@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { AppContext } from '../../context'
 
 const AllUsers = () => {
-    const { allUsers, changeUser } = useContext(AppContext)
+    const { allUsers, changeCurrentUser } = useContext(AppContext)
     return (
         
             <div>
@@ -11,7 +11,7 @@ const AllUsers = () => {
                     allUsers.map((user) => {
                         return (
                             <Link key={user.id} to='/'>
-                                <li onClick={() => changeUser(user.id)}>{user.name}</li>
+                                <li onClick={() => changeCurrentUser(user.id)}>{user.name}</li>
                             </Link>
                         ) 
                     })

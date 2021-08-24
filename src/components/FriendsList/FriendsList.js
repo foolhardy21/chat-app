@@ -5,22 +5,21 @@ import Friend from '../Friend/Friend'
 
 const FriendsList = () => {
 
-    const { friends, findFriends }=  useContext(AppContext)
-
+    const { friendsList, searchFriend }=  useContext(AppContext)
     return (
         
         <div>
             <input 
             placeholder='Search...' 
             type='text'
-            onChange={findFriends}
+            onChange={searchFriend}
             />
             <Link to='/newconvo'>
                 <button>New</button>
             </Link>
 
             {
-                friends.map( (friend) => {
+                friendsList.map( (friend) => {
                     return <Friend key={friend.id} {...friend} /> 
                 })
             }

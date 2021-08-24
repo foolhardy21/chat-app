@@ -6,9 +6,11 @@ const Header = () => {
 
     return (
         <div>
-            {currentFriend.name}
+            {
+                currentFriend ? `${currentFriend.name}` : ``
+            }
         </div>
-    )
+    )        
 }
 
 export default Header

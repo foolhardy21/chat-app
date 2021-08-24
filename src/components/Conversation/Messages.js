@@ -2,18 +2,19 @@ import React, { useContext } from 'react'
 import { AppContext } from '../../context'
 
 const Messages = () => {
-    const { currentFriend, currentMessages } = useContext(AppContext)
+    const { currentFriend, currentConversation } = useContext(AppContext)
 
     return (
         <div>
             {
-            currentMessages.map((message,index) => {
+                 currentConversation.map((message,index) => {
                 if (message.sender_id === currentFriend.id) {
                     return <div key={index}>{`he said ${message.text}`}</div> 
                 } else{
                     return <div key={index}>{`you said ${message.text}`}</div>
                 }
-            })}
+            })
+        }
         </div>
     )
 }
