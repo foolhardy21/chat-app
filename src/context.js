@@ -27,15 +27,15 @@ const AppProvider = ({children}) => {
         return newconvo 
     }
     const [allUsers, setAllUsers] = useState(users)
-    const [allMessages, setAllMessages] = useState(conversations)
     const [currentUser, setCurrentUser] = useState( users[0] )
-    const [friends, setAllFriends] = useState( initialiseFriendsArray() )
     const [currentFriend, setCurrentFriend] = useState( users[1] )
-    const [messages, setMessages] = useState(initialiseConversationArray(currentUser.id, currentFriend.id))
+    const [friends, setAllFriends] = useState( initialiseFriendsArray() )
+    const [allMessages, setAllMessages] = useState(conversations)
+    const [currentMessages, setCurrentMessages] = useState(initialiseConversationArray(currentUser.id, currentFriend.id))
     const [messagetext, setMessageText] = useState('')
 
     useEffect(() => {
-        setMessages(initialiseConversationArray(currentUser.id, currentFriend.id))
+        setCurrentMessages(initialiseConversationArray(currentUser.id, currentFriend.id))
     },[currentFriend, currentUser])
     useEffect(() => {
         setAllFriends(initialiseFriendsArray())
@@ -64,7 +64,7 @@ const AppProvider = ({children}) => {
             text: messagetext,
             time: new Date(),
         }
-        setMessages([...messages,newmessage])
+        setCurrentMessages([...currentMessages,newmessage])
         setAllMessages([...allMessages,newmessage])
         setMessageText('')
         
@@ -78,7 +78,6 @@ const AppProvider = ({children}) => {
     }
     const addNewConvo = (e) => {
         sendMessage(e)
-
         const newallUsers = allUsers.map(user => {
             if(user.id === currentUser.id) {
                 user.friends.push(currentFriend.id)
@@ -98,12 +97,11 @@ const AppProvider = ({children}) => {
             currentUser,
             friends,
             currentFriend,
-            messages,
+            currentMessages,
             messagetext,
             changeFriend,
             findFriends,
             sendMessage,
-            setMessageText,
             updateMessageText,
             setNewFriend,
             addNewConvo,

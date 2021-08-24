@@ -12,22 +12,28 @@ const App= () => {
       return (
         <div className={styles.main_container}>
           <Router>
+
             <Link to='/users'>
               <div>New Login</div>
             </Link>
+            
             <Switch>
+          
               <Route exact path='/'>
                 <Info />
                 <ConversationView />
               </Route>
+          
               <Route path='/users'>
                 <AllUsers />
               </Route>
+          
               <Route path='/newconvo'>
                 <NewConversation />
               </Route>
-            </Switch>
-            
+          
+            </Switch> 
+          
           </Router>
         </div>
       )
