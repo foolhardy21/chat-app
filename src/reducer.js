@@ -40,7 +40,17 @@ const reducer = (state, action) => {
                 {...state, 
                     friendsList: allFriends 
                 }
-                
+        case 'ADD_FRIEND':
+                return { ...state, 
+                    friendsList: [...state.friendsList, action.payload], 
+                    allUsers: state.allUsers.map(user => {
+                        if(user.id === state.currentUser.id) {
+                            user.friends.push(action.payload.id)
+                        } else if(user.id === action.payload.id) {
+                            user.friends.push(state.currentUser.id)
+                        } return user
+                    })
+                }
         default: return {}
     }
 }

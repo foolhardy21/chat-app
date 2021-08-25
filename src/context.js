@@ -53,7 +53,10 @@ const AppProvider = ({children}) => {
     const changeCurrentUser = (id) => {
         dispatch({ type: 'SWITCH_USER', payload: id })
     }
-
+    const startNewConversation = (user) => {
+        dispatch({ type: 'ADD_FRIEND', payload: user })
+        changeCurrentFriend(user.id)
+    }
     return (
         <AppContext.Provider
         value = {{
@@ -64,6 +67,7 @@ const AppProvider = ({children}) => {
             searchFriend,
             sendMessage,
             changeCurrentUser,
+            startNewConversation,
         }}
         >
             {children}

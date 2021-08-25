@@ -1,20 +1,22 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { AppContext } from '../../context'
 
 const NewConversation = () => {
-    const { messagetext, updateMessageText, allUsers, setNewFriend, addNewConvo } = useContext(AppContext)
+    const { allUsers, startNewConversation } = useContext(AppContext)
 
     return (
         <div>
             {
                 allUsers.map((user) => {
-                    return <li key={user.id} onClick={() => setNewFriend(user.id)}>{user.name}</li>
+                    return <li key={user.id} onClick={() => startNewConversation(user)}>
+                        <Link to='/'>
+                            {user.name}
+                        </Link>
+                    </li>
                 })
             }
-            <form onSubmit={addNewConvo}>
-                <input value={messagetext} onChange={updateMessageText} type='text' placeholder='type message here...' />
-                <input type='submit' value='send' />
-            </form>
+
         </div>
     )
 }
