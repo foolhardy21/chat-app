@@ -4,9 +4,10 @@
     bottom: 0;
 }
 input[type=text] {
-    width: 99%;
+    width: 75%;
     height: 40px;
 }
 input[type=submit] {
-    width: 100%;
+    width: 24%;
+    height: 40px;
 }
