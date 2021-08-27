@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+input[type=text] {
+    width: 99%;
+    height: 40px;
+}
+input[type=submit] {
+    width: 100%;
+}

@@ -1,0 +1,19 @@
+.left {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2px 5px;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 5px;
+}
+
+.messagelist {
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: scroll;
+}

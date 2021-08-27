@@ -1,10 +1,9 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Info from './components/InfoPanel/InfoPanel';
 import ConversationView from './components/Conversation/Conversation';
 import AllUsers from './components/NewLogin/NewLogin'
 import NewConversation from './components/NewConversation/NewConversation';
-
 import styles from './App.module.css'
 
 const App= () => {
@@ -13,10 +12,6 @@ const App= () => {
         <div className={styles.main_container}>
           <Router>
 
-            <Link to='/users'>
-              <div>New Login</div>
-            </Link>
-            
             <Switch>
           
               <Route exact path='/'>

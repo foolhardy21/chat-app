@@ -6,6 +6,6 @@
 .main_container {
     display: flex;
     background: grey;
-    min-height: 100vh;
+    height: 90vh;
     padding: 20px;
 }
