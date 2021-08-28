@@ -16,16 +16,18 @@ const FriendsList = () => {
                 type='text'
                 onChange={searchFriend}
                 />
-                <Link to='/newconvo'>
-                    <button>New Chat</button>
+                <Link to='/newconvo' className={styles.link}>
+                    New Chat
                 </Link>
             </div>
-
-            {
-                friendsList.map( (friend) => {
-                    return <Friend key={friend.id} {...friend} /> 
-                })
-            }
+            <div className={styles.scrolllist}>
+                {
+                    friendsList.map( (friend) => {
+                        return <Friend key={friend.id} {...friend} /> 
+                    })
+                }
+            </div>
+            
         </div>
     )
 }

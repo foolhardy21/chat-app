@@ -9,11 +9,17 @@
     justify-content: flex-end;
     padding: 2px 5px;
 }
-
+.firstChild {
+    margin-top: auto;
+}
 .messagelist {
     height: 550px;
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-end; */
-    overflow-y: scroll;
+    overflow-y: auto;
 }
+.lastChild {
+    height: 20px;
+    background: red;
+}
+/* use useRef on messagelist div and aply scrollTop - scrollheight   */

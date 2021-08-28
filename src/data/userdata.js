@@ -32,6 +32,9 @@ const users = [
         name: 'Saumya Pandey',
         friends: []
     },
+    
+    
+
 ]
 
 export default users

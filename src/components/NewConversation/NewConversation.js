@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../../context'
+import styles from './NewConversation.module.css'
 
 const NewConversation = () => {
     const { allUsers, startNewConversation } = useContext(AppContext)
@@ -9,11 +10,11 @@ const NewConversation = () => {
         <div>
             {
                 allUsers.map((user) => {
-                    return <li key={user.id} onClick={() => startNewConversation(user)}>
-                        <Link to='/'>
-                            {user.name}
+                    return <Link to='/' className={styles.link}>
+                            <li key={user.id} onClick={() => startNewConversation(user)}>
+                                {user.name}
+                            </li>
                         </Link>
-                    </li>
                 })
             }
 

@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useState, useRef, useEffect, useReducer } from 'react'
 import users from './data/userdata'
 import conversations from './data/messagedata'
 import reducer from './reducer'
@@ -38,7 +38,12 @@ const AppProvider = ({children}) => {
     
     const [state, dispatch] = useReducer(reducer, initialState)
     const [message, setMessage] = useState('')
-    
+    const scrollRef = useRef(null)
+
+    useEffect(() => {
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+    },[state.allMessages, state.currentUser, state.currentFriend])
+
     const changeCurrentFriend = ( id ) => {
         dispatch({ type: 'SWITCH_FRIEND', payload: id })
     }
@@ -62,6 +67,7 @@ const AppProvider = ({children}) => {
         value = {{
             ...state,
             message,
+            scrollRef,
             setMessage,
             changeCurrentFriend,
             searchFriend,
