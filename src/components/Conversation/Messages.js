@@ -8,13 +8,18 @@ const Messages = () => {
     return (
         <div className={styles.wrapper}>
             <div ref={scrollRef} className={styles.messagelist}>
-                <div className={styles.firstChild}></div>
                 {   
                     currentConversation.map((message,index) => {
                     if (message.sender_id === currentFriend.id) {
-                        return <div key={index} className={styles.left}>{message.text}</div> 
+                        return <div key={index} className={styles.left}>
+                            {message.text} 
+                            <span className={styles.datetime}>{message.message_time.toLocaleString()}</span>
+                            </div> 
                     } else{
-                        return <div key={index} className={styles.right}>{message.text}</div>
+                        return <div key={index} className={styles.right}>
+                            {message.text}
+                            <span className={styles.datetime}>{message.message_time.toLocaleString()}</span>
+                            </div>
                     }
                 })
             }

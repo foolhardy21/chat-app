@@ -1,25 +1,37 @@
 .left {
-    display: flex;
-    justify-content: flex-start;
+    margin-right: auto;
+    max-width: 300px;
+    width: fit-content;
     padding: 2px 5px;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    border-color: lightskyblue;
+    background: lightskyblue;
+    margin-top: 10px;
 }
 
 .right {
-    display: flex;
-    justify-content: flex-end;
+    margin-left: auto;
+    max-width: 300px;
+    width: fit-content;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    border-color: lightskyblue;
+    background: lightskyblue;
     padding: 2px 5px;
-}
-.firstChild {
-    margin-top: auto;
+    margin-top: 10px;
 }
 .messagelist {
     height: 550px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
-.lastChild {
-    height: 20px;
-    background: red;
+.datetime {
+    font-size: 0.6rem;
+    display: flex;
 }
-/* use useRef on messagelist div and aply scrollTop - scrollheight   */
+/* apply grid in conversation panel */

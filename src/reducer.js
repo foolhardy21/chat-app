@@ -25,7 +25,7 @@ const reducer = (state, action) => {
                     sender_id: state.currentUser.id,
                     reciever_id: state.currentFriend.id,
                     text: action.payload,
-                    time: new Date(),
+                    message_time: new Date(),
                 }
                 return { ...state, 
                     allMessages: [...state.allMessages, newmessage], 
