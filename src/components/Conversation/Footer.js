@@ -9,7 +9,6 @@ const Footer = () => {
         <div className={styles.container}>
             <form onSubmit={sendMessage}>
                 <input value={message} onChange={(e) => setMessage(e.target.value)} type='text' placeholder='type here...' />
-                <input type='submit' value='send' />
             </form>
             
         </div>

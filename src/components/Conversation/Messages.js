@@ -6,7 +6,7 @@ const Messages = () => {
     const { currentFriend, scrollRef, currentConversation } = useContext(AppContext)
 
     return (
-        <div className={styles.wrapper}>
+        
             <div ref={scrollRef} className={styles.messagelist}>
                 {   
                     currentConversation.map((message,index) => {
@@ -24,8 +24,6 @@ const Messages = () => {
                 })
             }
             </div>
-
-        </div>
     )
 }
 
